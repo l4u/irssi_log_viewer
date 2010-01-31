@@ -1,0 +1,21 @@
+============================
+Irssi Log Viewer
+============================
+
+If you run your irssi on a server and perhaps you like to read the chat logs in the browser without connecting to the shell.
+This program is designed for that and runs on a php enabled web server.
+
+== Installation
+Just copy all files to your web directory. Afterwards set the path to your irssi log files (default /home/user/irclogs) in config.php.
+Maybe you have to customize the configuration of irssi because of file permissions (see below).
+
+== Irssi Customizing
+This script needs read permissions on files/folders of irssi log directory. Mostly the web user and irssi user isn't the same.
+Then you should add the following line:
+    settings = {
+        core = {
+            ...
+            log_create_mode = "644"; #sets file permission of log files to rw-r--r--
+        };
+        "fe-common/core" = { autolog = "yes"; }; #enables auto logging
+      }
